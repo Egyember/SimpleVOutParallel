@@ -27,7 +27,7 @@ module svo_tcard #( `SVO_DEFAULT_PARAMS ) (
 	//   tuser[0] ... start of frame
 	output wire out_axis_tvalid,	//color output valid
 	input wire out_axis_tready,	//next stage waits for color
-	output reg [SVO_BITS_PER_PIXEL-1:0] out_axis_tdata, //color data
+	output wire [SVO_BITS_PER_PIXEL-1:0] out_axis_tdata, //color data
 	output reg [0:0] out_axis_tuser, //timeing
 
 
