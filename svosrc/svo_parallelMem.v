@@ -44,9 +44,9 @@ input wire [SVO_BITS_PER_BLUE-1:0] b
 `SVO_DECLS
 
 
-assign out_axis_tdata <= {b, g, r};
-assign out_axis_tvalid <= in_axis_tvalid;
-assign in_axis_tready <= out_axis_tready;
+assign out_axis_tdata = {b, g, r};
+assign out_axis_tvalid = in_axis_tvalid;
+assign in_axis_tready = out_axis_tready;
 
 initial begin
 		hcursor <= 0;
