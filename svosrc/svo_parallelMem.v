@@ -20,7 +20,7 @@
 `timescale 1ns / 1ps
 `include "svo_defines.vh"
 
-module svo_tcard #( `SVO_DEFAULT_PARAMS ) (
+module svo_parallelMem #( `SVO_DEFAULT_PARAMS ) (
 	input clk, resetn,
 
 	// output stream
