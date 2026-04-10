@@ -54,7 +54,7 @@ initial begin
 		out_axis_tuser <= 0;
 end
 
-always @(posedge in_axis_tvalid or resetn) begin
+always @(posedge in_axis_tvalid or negedge resetn) begin
 	if (!resetn) begin
 		hcursor <= 0;
 		vcursor <= 0;
