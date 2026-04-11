@@ -21,7 +21,7 @@
 `include "svo_defines.vh"
 
 module svo_parallelMem #( `SVO_DEFAULT_PARAMS ) (
-	input clk, resetn,
+	input resetn,
 
 	// output stream
 	//   tuser[0] ... start of frame
@@ -31,15 +31,15 @@ module svo_parallelMem #( `SVO_DEFAULT_PARAMS ) (
 	output reg [0:0] out_axis_tuser, //timeing
 
 
-input wire in_axis_tvalid,	//input color  valid
-output wire in_axis_tready, //need color
+	input wire in_axis_tvalid,	//input color  valid
+	output wire in_axis_tready, //need color
+	
+	output reg [`SVO_XYBITS-1:0] hcursor,
+	output reg [`SVO_XYBITS-1:0] vcursor,
 
-output reg [`SVO_XYBITS-1:0] hcursor,
-output reg [`SVO_XYBITS-1:0] vcursor,
-
-input wire [SVO_BITS_PER_RED-1:0] r,
-input wire [SVO_BITS_PER_GREEN-1:0] g,
-input wire [SVO_BITS_PER_BLUE-1:0] b
+	input wire [SVO_BITS_PER_RED-1:0] r,
+	input wire [SVO_BITS_PER_GREEN-1:0] g,
+	input wire [SVO_BITS_PER_BLUE-1:0] b
 );
 `SVO_DECLS
 
