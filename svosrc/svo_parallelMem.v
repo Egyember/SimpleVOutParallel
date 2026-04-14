@@ -21,7 +21,7 @@
 `include "svo_defines.vh"
 
 module svo_parallelMem #( `SVO_DEFAULT_PARAMS ) (
-	input resetn,
+	input clk, resetn,
 
 	// output stream
 	//   tuser[0] ... start of frame
@@ -54,23 +54,24 @@ initial begin
 		out_axis_tuser <= 0;
 end
 
-always @(posedge in_axis_tvalid or negedge resetn) begin
+always @(posedge clk or negedge resetn) begin
 	if (!resetn) begin
 		hcursor <= 0;
 		vcursor <= 0;
 		out_axis_tuser <= 0;
 	end else begin
 		out_axis_tuser[0] <= (hcursor==0) && (vcursor==0);
-
-		if (hcursor == SVO_HOR_PIXELS-1) begin
-			hcursor <= 0;
-			if (vcursor == SVO_VER_PIXELS-1) begin
-				vcursor <= 0;
+		if (out_axis_tready) begin
+			if (hcursor == SVO_HOR_PIXELS-1) begin
+				hcursor <= 0;
+				if (vcursor == SVO_VER_PIXELS-1) begin
+					vcursor <= 0;
+				end else begin
+					vcursor <= vcursor + 1;
+				end
 			end else begin
-				vcursor <= vcursor + 1;
+				hcursor <= hcursor + 1;
 			end
-		end else begin
-			hcursor <= hcursor + 1;
 		end
 	end
 end
