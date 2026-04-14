@@ -74,9 +74,9 @@ The following cores can be used to create video streams:
       access the video memory.
 
     svo_parallelMem.v
-      A simple interface for hooking up cosume stream generators. Outputs
-      the screen cordinates and asembles the rgb color data for the next
-      stage.
+      A simple interface for hooking up costume stream generators.
+      Outputs the screen coordinates and assembles the rgb color
+      data for the next stage.
 
 See also svo_utils.v for various helpers for combining video streams. The
 svo_pong core is in fact a collection of various cores generating video
