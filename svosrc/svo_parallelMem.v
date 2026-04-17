@@ -1,8 +1,7 @@
 /*
  *  SVO - Simple Video Out FPGA Core
  *
- *  Copyright (C) 2014  Clifford Wolf <clifford@clifford.at>
- *  
+ *  Copyright (C) 2026  Gyenge Zsombor <gyengezsombor2005@gmail.com>
  *  Permission to use, copy, modify, and/or distribute this software for any
  *  purpose with or without fee is hereby granted, provided that the above
  *  copyright notice and this permission notice appear in all copies.
